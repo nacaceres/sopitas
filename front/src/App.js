@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
+import BuyForm from "./components/BuyForm";
 
 function App() {
   const [docs, setDocs] = useState([]);
@@ -35,13 +36,17 @@ function App() {
 
   const renderDocs = () => docs.map(d => <div key={d.name}>{d.name}</div>);
   return (
+    <div>
     <div className="App container-fluid">
       <Header />
       <Navbar />
       <Jumbotron />
       <h1>Reactive!!!</h1>
+  {/*}<BuyForm flavors={[{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""}]}></BuyForm>*/}
+
       <div>{err}</div>
       {renderDocs()}
+    </div>
     </div>
   );
 }
