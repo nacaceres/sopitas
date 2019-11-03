@@ -9,7 +9,8 @@ class Header extends Component {
       <div className="container-fluid">
         <div className="banner-row">
           <h5 className="brand-name">
-            FREE DELIVERY IN GREATER MONTREAL EVERY SUNDAY
+            &lt;&lt;&lt; FREE DELIVERY IN GREATER MONTREAL EVERY SUNDAY
+            &gt;&gt;&gt;
           </h5>
         </div>
         <div className="logo-row">

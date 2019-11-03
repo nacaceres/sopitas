@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
+import Information from "./components/Information";
 
 function App() {
   const [docs, setDocs] = useState([]);
@@ -39,6 +40,8 @@ function App() {
       <Header />
       <Navbar />
       <Jumbotron />
+      <div className="divider"></div>
+      <Information />
       <h1>Reactive!!!</h1>
       <div>{err}</div>
       {renderDocs()}
