@@ -3,6 +3,11 @@ import Variety from '../components/Variety';
 
 const VarietyList = (props)=>{
 
+
+  const onClickRedirect =()=>{
+    // Realizar redirección de path
+  }
+
   return(
     <div>
       <h2 className="color1">OUR FLAVORS</h2>
@@ -18,6 +23,9 @@ const VarietyList = (props)=>{
             <Variety name="NAME 6" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
           </div>
     </div>
+    <div className="btn-container">
+    <button type="button" class="btn btn-lg color5" onClick={onClickRedirect}>ORDER NOW</button>
+  </div>
     </div>
   )
 }
