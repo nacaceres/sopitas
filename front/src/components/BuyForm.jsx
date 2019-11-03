@@ -8,9 +8,9 @@ const BuyForm = (props) => {
   <h2 className="color4">CHOOSE YOUR PLAN</h2>
 
   <div className="grilla" >
-    <div><input type="image" src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></input></div>
-    <div><input type="image" src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></input></div>
-    <div><input type="image" src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></input></div>
+    <div><input type="image" src="https://www.saboresdemihuerto.com/wp-content/uploads/2014/11/Sopa-de-Tortilla.jpg" width="250px" height="250px"></input></div>
+    <div><input type="image" src="https://www.saboresdemihuerto.com/wp-content/uploads/2014/11/Sopa-de-Tortilla.jpg" width="250px" height="250px"></input></div>
+    <div><input type="image" src="https://www.saboresdemihuerto.com/wp-content/uploads/2014/11/Sopa-de-Tortilla.jpg" width="250px" height="250px"></input></div>
   </div>
   </li>
 
@@ -28,13 +28,17 @@ const BuyForm = (props) => {
     WEEKS</h4></form>
   </div>
   </li>
+  <br></br>
   <li>
   <h2 className="color4">CHOOSE FLAVORS</h2>
+  </li><br></br></ol>
   <div className="grilla">
   {props.flavors.map((p,i)=>(<Flavor  key={i} image={p.imageurl} ></Flavor>))}
   </div>
-  </li></ol>
-  <button type="button" class="btn btn-primary btn-lg color5">ORDER NOW</button>
+
+  <div className="btn-container">
+    <button type="button" class="btn btn-lg color5">ORDER NOW</button>
+  </div>
   </div>
   )
 }

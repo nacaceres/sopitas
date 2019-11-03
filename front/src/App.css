@@ -277,6 +277,7 @@ input:focus {
 
 .flavor {
   text-align: center;
+  margin: 20px;
 }
 .contenedor {
   text-align: center;
@@ -318,6 +319,10 @@ ol li::before {
   color: white;
   background-color: #f53838;
   border: none;
+}
+.btn-container{
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .image-flavor{

@@ -7,6 +7,8 @@ import Jumbotron from "./components/Jumbotron";
 import Information from "./components/Information";
 import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
+import Variety from "./components/Variety";
+import VarietyList from "./components/VarietyList";
 
 function App() {
   const [docs, setDocs] = useState([]);
