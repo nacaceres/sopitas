@@ -153,6 +153,8 @@ input:focus {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
   align-content: center;
+  margin-top: 15px;
+  justify-items: center;
 }
 
 .card {
@@ -162,12 +164,62 @@ input:focus {
   color: #4b8a68;
 }
 
+.footer-title {
+  text-align: center;
+}
+
 .icon {
   max-width: 120px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 22px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  text-decoration: none;
+  align-items: center;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover,
+.fa:focus {
+  opacity: 0.7;
+  color: white;
+  text-decoration: none;
+  background-color: #4b8a68;
+}
+
+.fa-facebook {
+  background: #9dd1a6;
+  color: white;
+}
+
+.fa-google {
+  background: #9dd1a6;
+  color: white;
+}
+
+.fa-instagram {
+  background: #9dd1a6;
+  color: white;
+}
+
+.link {
+  text-align: center;
+}
+
+.link:hover,
+.link:focus {
+  color: white;
+  opacity: 0.7;
+  text-decoration: none;
 }
 
 .card1 {
@@ -200,6 +252,27 @@ input:focus {
 
 .color5 {
   color: #f53838;
+}
+
+.background-color-1 {
+  background-color: #4b8a68;
+}
+
+.background-color-2 {
+  background-color: #c7d6ca;
+  padding: 15px 0;
+}
+
+.background-color-3 {
+  background-color: #9dd1a6;
+}
+
+.background-color-4 {
+  background-color: #752929;
+}
+
+.background-color-5 {
+  background-color: #f53838;
 }
 
 .flavor {
