@@ -1,0 +1,103 @@
+body {
+  margin: 0 auto;
+  font-family: "Titillium Web", sans-serif;
+  padding-bottom: 50px;
+}
+
+.banner-row {
+  background-color: #4b8a68;
+  color: white;
+  text-align: center;
+  padding: 1px;
+}
+
+.logo-row {
+  text-align: center;
+}
+
+.logo {
+  width: 120px;
+  margin: 10px;
+}
+
+.navbar-row {
+  background-color: black;
+}
+
+.nav-link {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #9dd1a6;
+}
+
+.navbar-brand {
+  color: #c7d6ca;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Grand Hotel", cursive;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: white;
+}
+
+.orderButton {
+  color: white;
+  background-color: #f53838;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  max-width: 300px;
+  cursor: pointer;
+}
+
+.orderButton:hover,
+.orderButton:focus {
+  background-color: #752929;
+}
+
+.jumbotron {
+  background: url("./img/banner/bannerExample.jpg") center center;
+  background-size: cover;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.jumbotronText {
+  text-align: center;
+  grid-column: 2;
+  grid-row: 5;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+.jumbotronButton {
+  text-align: center;
+  grid-column: 6;
+  grid-row: 5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Amaranth", sans-serif;
+}

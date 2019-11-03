@@ -1,6 +1,5 @@
 body {
-  margin: 20;
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  font-family: "Titillium Web", sans-serif;
+  padding-bottom: 50px;
 }
