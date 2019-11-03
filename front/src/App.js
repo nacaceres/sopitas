@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Information from "./components/Information";
+import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
 
 function App() {
@@ -38,18 +39,19 @@ function App() {
   const renderDocs = () => docs.map(d => <div key={d.name}>{d.name}</div>);
   return (
     <div>
-    <div className="App container-fluid">
-      <Header />
-      <Navbar />
-      <Jumbotron />
-      <div className="divider"></div>
-      <Information />
-      <h1>Reactive!!!</h1>
-  {/*<BuyForm flavors={[{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""}]}></BuyForm>*/}
+      <div className="App container-fluid">
+        <Header />
+        <Navbar />
+        <Jumbotron />
+        <div className="divider"></div>
+        <Information />
+        <h1>Reactive!!!</h1>
+        {/*}<BuyForm flavors={[{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""}]}></BuyForm>*/}
+        <div>{err}</div>
+        {renderDocs()}
+        <Footer />
+      </div>
 
-      <div>{err}</div>
-      {renderDocs()}
-    </div>
     </div>
   );
 }
