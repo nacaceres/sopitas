@@ -120,7 +120,7 @@ h6 {
   color: #43484d;
   font-weight: 300;
 }
-button[class*="btn"] {
+button[class*="btnn"] {
   width: 30px;
   height: 30px;
   background-color: black;
@@ -239,10 +239,3 @@ ol li::before {
   text-align: center;
   box-shadow: 1px 1px 0 #999;
 }
-<<<<<<< HEAD
-
-input:focus{
-  background-color: yellow;
-}
-=======
->>>>>>> 5db175676d4ffc92016671b24bc5574887b8ce69
