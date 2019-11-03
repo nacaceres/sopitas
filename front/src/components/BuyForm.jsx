@@ -34,7 +34,7 @@ const BuyForm = (props) => {
   {props.flavors.map((p,i)=>(<Flavor  key={i} image={p.imageurl} ></Flavor>))}
   </div>
   </li></ol>
-  <button type="button" class="btn btn-primary btn-lg">Large button</button>
+  <button type="button" class="btn btn-primary btn-lg color5">ORDER NOW</button>
   </div>
   )
 }

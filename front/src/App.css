@@ -239,3 +239,14 @@ ol li::before {
   text-align: center;
   box-shadow: 1px 1px 0 #999;
 }
+
+.btn{
+  text-align: center;
+  color: white;
+  background-color: #f53838;
+  border: none;
+}
+
+.image-flavor{
+  margin-bottom: 5px;
+}
