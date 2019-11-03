@@ -27,11 +27,11 @@ const Flavor = (props) => {
   <div className="flavor">
     <img src="https://recetasconquinoa.es/img/sopa-de-quinoa-774.jpg" alt="Flavor image" height="250" width="250"></img>
     <div className="quantity">
-      <button className="minus-btn" type="button" name="button" onClick={handleChangeMinus}>
+      <button className="minus-btnn" type="button" name="button" onClick={handleChangeMinus}>
         <img src={minus}alt="-"/>
       </button>
       <input type="text" name="name" value={count}/>
-      <button className="plus-btn" type="button" name="button" onClick={handleChangePlus}>
+      <button className="plus-btnn" type="button" name="button" onClick={handleChangePlus}>
         <img src={plus} alt="+" />
       </button>
     </div>

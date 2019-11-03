@@ -47,11 +47,11 @@ function App() {
         <Information />
         <h1>Reactive!!!</h1>
         {/*}<BuyForm flavors={[{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""}]}></BuyForm>*/}
-
         <div>{err}</div>
         {renderDocs()}
         <Footer />
       </div>
+
     </div>
   );
 }
