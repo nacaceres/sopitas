@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
+import Information from "./components/Information";
 import BuyForm from "./components/BuyForm";
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
       <Header />
       <Navbar />
       <Jumbotron />
+      <div className="divider"></div>
+      <Information />
       <h1>Reactive!!!</h1>
   {/*}<BuyForm flavors={[{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""}]}></BuyForm>*/}
 

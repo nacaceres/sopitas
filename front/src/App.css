@@ -102,7 +102,7 @@ h6 {
   font-family: "Amaranth", sans-serif;
 }
 
-.stepTwo{
+.stepTwo {
   display: inline;
 }
 
@@ -110,7 +110,6 @@ h6 {
   /*padding-top: 20px;*/
   text-align: center;
   margin-bottom: 20px;
-
 }
 .quantity input {
   -webkit-appearance: none;
@@ -118,10 +117,10 @@ h6 {
   text-align: center;
   width: 32px;
   font-size: 16px;
-  color: #43484D;
+  color: #43484d;
   font-weight: 300;
 }
-button[class*=btn] {
+button[class*="btn"] {
   width: 30px;
   height: 30px;
   background-color: black;
@@ -133,7 +132,7 @@ button[class*=btn] {
 
 button:focus,
 input:focus {
-  outline:0;
+  outline: 0;
 }
 
 .grilla {
@@ -141,15 +140,75 @@ input:focus {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   margin: 0 auto;
+}
 
+.divider {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #c7d6ca;
 }
-.flavor{
+
+.three-items-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+  align-content: center;
+}
+
+.card {
+  text-align: center;
+  align-content: center;
+  margin: 15px;
+  color: #4b8a68;
+}
+
+.icon {
+  max-width: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.card1 {
+  grid-column: 2;
+}
+
+.card2 {
+  grid-column: 3;
+}
+
+.card3 {
+  grid-column: 4;
+}
+
+.color1 {
+  color: #4b8a68;
+}
+
+.color2 {
+  color: #c7d6ca;
+}
+
+.color3 {
+  color: #9dd1a6;
+}
+
+.color4 {
+  color: #752929;
+}
+
+.color5 {
+  color: #f53838;
+}
+
+.flavor {
   text-align: center;
 }
-.contenedor{
+.contenedor {
   text-align: center;
 }
-.aa{
+.aa {
   margin-left: 30px;
 }
 ol {
@@ -180,7 +239,10 @@ ol li::before {
   text-align: center;
   box-shadow: 1px 1px 0 #999;
 }
+<<<<<<< HEAD
 
 input:focus{
   background-color: yellow;
 }
+=======
+>>>>>>> 5db175676d4ffc92016671b24bc5574887b8ce69
