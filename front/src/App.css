@@ -180,3 +180,7 @@ ol li::before {
   text-align: center;
   box-shadow: 1px 1px 0 #999;
 }
+
+input:focus{
+  background-color: yellow;
+}

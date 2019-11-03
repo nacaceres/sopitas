@@ -7,10 +7,10 @@ const BuyForm = (props) => {
   <ol><li>
   <h2>CHOOSE YOUR PLAN</h2>
 
-  <div className="grilla">
-    <div><img src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></img></div>
-    <div><img src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></img></div>
-    <div><img src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></img></div>
+  <div className="grilla" >
+    <div><input type="image" src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></input></div>
+    <div><input type="image" src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></input></div>
+    <div><input type="image" src="https://comidasperuanas.net/wp-content/uploads/2017/01/Sopa-de-Pollo-Peruana.jpg" width="250px" height="250px"></input></div>
   </div>
   </li>
 
