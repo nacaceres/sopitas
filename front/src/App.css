@@ -328,3 +328,31 @@ ol li::before {
 .image-flavor{
   margin-bottom: 5px;
 }
+
+.stepOne{
+  border: 5px solid white;
+}
+.stepOneSelected{
+  border: 5px solid #f53838;
+}
+.w3-card-8{
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important
+}
+.w3-margin{
+  margin:16px!important
+}
+.w3-container{
+  padding:0.01em 16px
+}
+.w3-center{
+  text-align:center!important
+
+}
+.w3-light-blue,.w3-hover-light-blue:hover{
+  color:#000!important;background-color:white !important;
+  width: 300px;
+}
+.w3-light-blue-selected,.w3-hover-light-blue:hover{
+  color:#000!important;background-color:#87CEEB!important;
+  width: 300px;
+}

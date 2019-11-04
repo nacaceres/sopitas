@@ -50,10 +50,10 @@ function App() {
         <Jumbotron />
         <div className="divider"></div>
         <Information />
-        <h1>Reactive!!!</h1>
         <div>{err}</div>
         {renderDocs()}
         <Footer />
+        <BuyForm></BuyForm>
       </div>
 
     </div>

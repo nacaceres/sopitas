@@ -31,7 +31,7 @@ const Flavor = (props) => {
       <button className="minus-btnn" type="button" name="button" onClick={handleChangeMinus}>
         <img src={minus}alt="-"/>
       </button>
-      <input type="text" name="name" value={count}/>
+      <input type="text" name={props.name} value={count}/>
       <button className="plus-btnn" type="button" name="button" onClick={handleChangePlus}>
         <img src={plus} alt="+" />
       </button>
