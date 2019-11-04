@@ -34,7 +34,7 @@ const MyMongoLib = function() {
       });
     });
 
-    MyMongoLib.getVarieties = () =>
+  MyMongoLib.getVarieties = () =>
     new Promise((resolve, reject) => {
       // Use connect method to connect to the Server
       client.connect((err, client) => {

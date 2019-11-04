@@ -60,8 +60,9 @@ body {
   border-radius: 0.5em;
   padding: 0.5em 1em;
   font-weight: bold;
-  max-width: 300px;
+  max-width: 400px;
   cursor: pointer;
+  font-size: 22px;
 }
 
 .orderButton:hover,
@@ -70,7 +71,7 @@ body {
 }
 
 .jumbotron {
-  background: url("./img/banner/bannerExample.jpg") center center;
+  background: url("./img/banner/banner1.jpg") center center;
   background-size: cover;
   height: 500px;
   display: grid;
@@ -211,6 +212,10 @@ input:focus {
   color: white;
 }
 
+.no-visible {
+  font-size: 0;
+}
+
 .link {
   text-align: center;
 }
@@ -314,45 +319,48 @@ ol li::before {
   box-shadow: 1px 1px 0 #999;
 }
 
-.btn{
+.btn {
   text-align: center;
   color: white;
   background-color: #f53838;
   border: none;
 }
-.btn-container{
+.btn-container {
   margin-bottom: 20px;
   text-align: center;
 }
 
-.image-flavor{
+.image-flavor {
   margin-bottom: 5px;
 }
 
-.stepOne{
+.stepOne {
   border: 5px solid white;
 }
-.stepOneSelected{
+.stepOneSelected {
   border: 5px solid #f53838;
 }
-.w3-card-8{
-  box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important
+.w3-card-8 {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
-.w3-margin{
-  margin:16px!important
+.w3-margin {
+  margin: 16px !important;
 }
-.w3-container{
-  padding:0.01em 16px
+.w3-container {
+  padding: 0.01em 16px;
 }
-.w3-center{
-  text-align:center!important
-
+.w3-center {
+  text-align: center !important;
 }
-.w3-light-blue,.w3-hover-light-blue:hover{
-  color:#000!important;background-color:white !important;
+.w3-light-blue,
+.w3-hover-light-blue:hover {
+  color: #000 !important;
+  background-color: white !important;
   width: 300px;
 }
-.w3-light-blue-selected,.w3-hover-light-blue:hover{
-  color:#000!important;background-color:#87CEEB!important;
+.w3-light-blue-selected,
+.w3-hover-light-blue:hover {
+  color: #000 !important;
+  background-color: #87ceeb !important;
   width: 300px;
 }
