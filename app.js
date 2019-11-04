@@ -1,19 +1,49 @@
-const createError = require("http-errors");
 const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+
+const createError = require("http-errors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const passportSetup = require("./config/passport-setup");
-const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
-const passport = require("passport");
+
+const users = require("./routes/api/users");
 
 const indexRouter = require("./routes/index");
 const authRoutes = require("./routes/auth-routes");
 const profileRoutes = require("./routes/profile-routes");
 
 const app = express();
+
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json());
+
+// DB config
+const db = require("./config/keys").mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport");
+
+// Routes
+app.use("/api/users", users);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -27,13 +57,7 @@ app.use(
 );
 
 // initialize passport
-app.use(passport.initialize());
 app.use(passport.session());
-
-// connect to mongodb
-mongoose.connect(keys.mongodb.dbURI, () => {
-  console.log("Connected to mongodb using mongoose");
-});
 
 app.use(logger("dev"));
 app.use(express.json());

@@ -1,6 +1,8 @@
 # sopitas
 
-Web page - ecommerce
+Web page - ecommerce  
+
+![](https://firebasestorage.googleapis.com/v0/b/proyectodiana-b940e.appspot.com/o/Sopitas.png?alt=media&token=e4dd36c2-b274-421d-8da6-16b96d3b483b)
 
 ## Start
 
