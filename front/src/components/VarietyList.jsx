@@ -1,7 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Variety from '../components/Variety';
 
 const VarietyList = (props)=>{
+
+  const [varieties, setVarieties] = useState([]);
+  const [err, setErr] = useState("");
+
+  useEffect(() => {
+    const ws = new WebSocket("ws://localhost:3001");
+
+    ws.onopen = () => {
+      console.log("Connected to ws");
+
+      ws.onmessage = msg => {
+        console.log("Got ws data", JSON.parse(msg.data));
+        setVarieties(JSON.parse(msg.data));
+      };
+    };
+    fetch("varieties")
+      .then(res => res.json())
+      .then(data => {
+        console.log("Got data", data);
+        if (data.err) {
+          setErr(JSON.stringify(data.msg));
+        } else {
+          setVarieties(data);
+        }
+      });
+
+  }, []);
+
+
+
 
 
   const onClickRedirect =()=>{
@@ -13,18 +43,11 @@ const VarietyList = (props)=>{
       <h2 className="color1">OUR FLAVORS</h2>
     <div className="container-fluid">
           <div className="three-items-row">
-            <Variety name="NAME 1" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
-            <Variety name="NAME 2" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
-            <Variety name="NAME 3" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
-          </div>
-          <div className="three-items-row">
-            <Variety name="NAME 4" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
-            <Variety name="NAME 5" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
-            <Variety name="NAME 6" description="This is the description of the flavor" ingredients={["One", "Two"]}></Variety>
+          {varieties.map(d => <Variety key={d.name} name={d.name} ingredients={d.ingredients} description={d.description} url={d.url}></Variety>)}
           </div>
     </div>
     <div className="btn-container">
-    <button type="button" class="btn btn-lg color5" onClick={onClickRedirect}>ORDER NOW</button>
+    <button type="button" className="btn btn-lg color5" onClick={onClickRedirect}>ORDER NOW</button>
   </div>
     </div>
   )

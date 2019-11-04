@@ -6,7 +6,7 @@ const MyMongoLib = function() {
   // Connection URL
   const url = process.env.MONGO_URL || "mongodb://localhost:27017";
   // Database Name
-  const dbName = "reactive";
+  const dbName = "sopitas";
   // Create a new MongoClient
   const client = new MongoClient(url, { useUnifiedTopology: true });
 
@@ -24,6 +24,30 @@ const MyMongoLib = function() {
 
         // Insert a single document
         const testCol = db.collection("inserts");
+
+        return testCol
+          .find({})
+          .limit(20)
+          .toArray()
+          .then(resolve)
+          .catch(reject);
+      });
+    });
+
+    MyMongoLib.getVarieties = () =>
+    new Promise((resolve, reject) => {
+      // Use connect method to connect to the Server
+      client.connect((err, client) => {
+        if (err !== null) {
+          reject(err);
+          return;
+        }
+        console.log("Connected correctly to server");
+
+        const db = client.db(dbName);
+
+        // Insert a single document
+        const testCol = db.collection("flavors");
 
         return testCol
           .find({})

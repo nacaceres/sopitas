@@ -20,4 +20,15 @@ router.get("/data", (req, res) => {
     .catch(err => res.send({ err: true, msg: err }));
 });
 
+router.get("/varieties", (req, res) => {
+  console.log("Get varieties");
+  myMongoLib
+    .getVarieties()
+    .then(docs => {
+      console.log("docs");
+      res.send(docs);
+    })
+    .catch(err => res.send({ err: true, msg: err }));
+});
+
 module.exports = router;
