@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Information from "./components/Information";
+import OurHistory from "./components/OurHistory";
 import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
 import Variety from "./components/Variety";
@@ -27,8 +29,7 @@ function App() {
       };
     };
 
-
-      fetch("data")
+    fetch("data")
       .then(res => res.json())
       .then(data => {
         console.log("Got data", data);
@@ -40,21 +41,55 @@ function App() {
       });
   }, []);
 
-
   const renderDocs = () => docs.map(d => <div key={d.name}>{d.name}</div>);
   return (
-    <div>
+    <Router>
       <div className="App container-fluid">
         <Header />
         <Navbar />
-        <Jumbotron />
-        <div className="divider"></div>
-        <Information />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <React.Fragment>
+              <Jumbotron />
+              <div className="divider"></div>
+              <Information />
+            </React.Fragment>
+          )}
+        />
+        <Route
+          exact
+          path="/order"
+          render={props => (
+            <React.Fragment>
+              <BuyForm />
+            </React.Fragment>
+          )}
+        />
+        <Route
+          exact
+          path="/varieties"
+          render={props => (
+            <React.Fragment>
+              <VarietyList />
+            </React.Fragment>
+          )}
+        />
+        <Route
+          exact
+          path="/ourHistory"
+          render={props => (
+            <React.Fragment>
+              <OurHistory />
+            </React.Fragment>
+          )}
+        />
         <div>{err}</div>
         {renderDocs()}
         <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../App";
 
 class Navbar extends Component {
@@ -7,18 +8,18 @@ class Navbar extends Component {
       <div className="container-fluid sticky-top">
         <div className="navbar-row">
           <nav className="navbar">
-            <a href="/" className="navbar-brand">
+            <Link to={"/"} className="navbar-brand">
               Sopitas
-            </a>
-            <a href="/" className="nav-link">
+            </Link>
+            <Link to={"/order"} className="nav-link">
               ORDER
-            </a>
-            <a href="/" className="nav-link">
+            </Link>
+            <Link to={"/varieties"} className="nav-link">
               VARIETIES
-            </a>
-            <a href="/" className="nav-link">
+            </Link>
+            <Link to={"/ourHistory"} className="nav-link">
               OUR HISTORY
-            </a>
+            </Link>
           </nav>
         </div>
       </div>
