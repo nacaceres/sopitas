@@ -10,10 +10,17 @@ const Flavor = (props) => {
 
   const handleChangeMinus = (evt) =>{
     if(count>0)
-    setCount(count-1);
+    {
+      let aux = count;
+      setCount(count-1);
+      props.callBack(props.name, aux-1, props.aux)
+    }
+
   }
   const handleChangePlus= (evt) =>{
-    setCount(count+1);
+     let aux = count;
+      setCount(count+1);
+      props.callBack(props.name, aux+1, props.aux)
   }
 
 

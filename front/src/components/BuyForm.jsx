@@ -8,6 +8,7 @@ import plan3 from "../img/sopitas/sopitas5.jpg";
 const BuyForm = props => {
   const [flavors, setFlavors] = useState([]);
   const [plan, setPlan] = useState("5");
+  const [flavorsSelected, setFlavorsSelected] = useState([]);
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3001");
@@ -29,6 +30,12 @@ const BuyForm = props => {
           // setErr(JSON.stringify(data.msg));
         } else {
           setFlavors(data);
+          let arr = [];
+          for(let i=0; i<Object.keys(data).length;i++)
+          {
+              arr.push({name:data[i].name, value:0})
+          }
+          setFlavorsSelected(arr);
         }
       });
   }, []);
@@ -63,6 +70,33 @@ const BuyForm = props => {
 
     setPlan("15");
   };
+
+  function callBackFunction(name, value, key) {
+    console.log("prueba call back:", name, value, key);
+    let str = name+":"+"'"+value+"'";
+    let act = flavorsSelected;
+    act[key]={name:name+"", value:value}
+    setFlavorsSelected(act);
+    console.log(flavorsSelected);
+  };
+
+  const orderNow = () =>{
+
+    var frecuency = document.getElementsByName("frecuency")[0].value;
+    var data = {plan: plan,frecuency:frecuency, flavors:flavorsSelected};
+    console.log("data ordernowm", data);
+
+    fetch("/order", {
+
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
+  }
 
   return (
     <div className="container" style={{ marginTop: 10 }}>
@@ -136,12 +170,12 @@ const BuyForm = props => {
       </ol>
       <div className="grilla">
         {flavors.map((p, i) => (
-          <Flavor name={p.name} key={i} image={p.imageurl}></Flavor>
+          <Flavor name={p.name} key={i} aux={i} image={p.imageurl} callBack={callBackFunction}></Flavor>
         ))}
       </div>
 
       <div className="btn-container">
-        <button type="button" className="orderButton">
+        <button type="button" className="orderButton" onClick={orderNow}>
           ORDER NOW
         </button>
       </div>

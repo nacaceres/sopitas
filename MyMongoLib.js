@@ -58,6 +58,32 @@ const MyMongoLib = function() {
       });
     });
 
+    MyMongoLib.sendOrder = (req, res) =>
+    new Promise((resolve, reject) => {
+      // Use connect method to connect to the Server
+      client.connect((err, client) => {
+        if (err !== null) {
+          reject(err);
+          return;
+        }
+        console.log("Connected correctly to server");
+
+        const db = client.db("sopitas");
+
+        // Insert a single document
+        const testCol = db.collection("orders");
+
+        return testCol
+          .insert(req.body, (err, result) => {
+            if (err) return res.status(400).json({ message: err.message });
+
+            res.status(201).json(req.body);
+          });
+
+
+      });
+    });
+
   MyMongoLib.listenToChanges = cbk => {
     client.connect((err, client) => {
       if (err !== null) {
