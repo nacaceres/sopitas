@@ -5,7 +5,7 @@ import plus from '../img/plus.svg';
 
 const Flavor = (props) => {
 
-  let url = props.imageurl;
+  let url = props.image;
   const [count, setCount] = useState(0);
 
   const handleChangeMinus = (evt) =>{
@@ -32,7 +32,7 @@ const Flavor = (props) => {
 
   return (
   <div className="flavor">
-    <img className="image-flavor"src="https://recetasconquinoa.es/img/sopa-de-quinoa-774.jpg" alt="Flavor image" height="250" width="250"></img>
+    <img className="image-flavor"src={url} alt="Flavor image" height="250" width="250"></img>
 
     <div className="quantity">
       <button className="minus-btnn" type="button" name="button" onClick={handleChangeMinus}>
