@@ -2,20 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+require("dotenv").config();
 
 const createError = require("http-errors");
 const path = require("path");
-const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const passportSetup = require("./config/passport-setup");
-const keys = require("./config/keys");
-const cookieSession = require("cookie-session");
 
 const users = require("./routes/api/users");
 
 const indexRouter = require("./routes/index");
-const authRoutes = require("./routes/auth-routes");
-const profileRoutes = require("./routes/profile-routes");
 
 const app = express();
 
@@ -28,7 +23,7 @@ app.use(
 app.use(bodyParser.json());
 
 // DB config
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose
@@ -49,26 +44,16 @@ app.use("/api/users", users);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use(
-  cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: [keys.session.cokkieKey]
-  })
-);
-
 // initialize passport
 app.use(passport.session());
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "front/build")));
 
 // set up routes
 app.use("/", indexRouter);
-app.use("/auth", authRoutes);
-app.use("/profile", profileRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
