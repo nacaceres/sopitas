@@ -12,6 +12,7 @@ import VarietyList from "./components/VarietyList";
 
 function App() {
   const [docs, setDocs] = useState([]);
+  const [varieties, setVarieties] = useState([]);
   const [err, setErr] = useState("");
 
   useEffect(() => {
@@ -26,7 +27,8 @@ function App() {
       };
     };
 
-    fetch("data")
+
+      fetch("data")
       .then(res => res.json())
       .then(data => {
         console.log("Got data", data);
@@ -38,6 +40,7 @@ function App() {
       });
   }, []);
 
+
   const renderDocs = () => docs.map(d => <div key={d.name}>{d.name}</div>);
   return (
     <div>
@@ -47,11 +50,10 @@ function App() {
         <Jumbotron />
         <div className="divider"></div>
         <Information />
-        <h1>Reactive!!!</h1>
-        {/*}<BuyForm flavors={[{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""},{urlimg:""}]}></BuyForm>*/}
         <div>{err}</div>
         {renderDocs()}
         <Footer />
+        <BuyForm></BuyForm>
       </div>
     </div>
   );
