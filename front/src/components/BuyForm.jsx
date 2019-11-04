@@ -80,6 +80,24 @@ const BuyForm = props => {
     console.log(flavorsSelected);
   };
 
+  const orderNow = () =>{
+
+    var frecuency = document.getElementsByName("frecuency")[0].value;
+    var data = {plan: plan,frecuency:frecuency, flavors:flavorsSelected};
+    console.log("data ordernowm", data);
+
+    fetch("/order", {
+
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
+  }
+
   return (
     <div className="container" style={{ marginTop: 10 }}>
       <ol>
@@ -157,7 +175,7 @@ const BuyForm = props => {
       </div>
 
       <div className="btn-container">
-        <button type="button" className="orderButton">
+        <button type="button" className="orderButton" onClick={orderNow}>
           ORDER NOW
         </button>
       </div>
