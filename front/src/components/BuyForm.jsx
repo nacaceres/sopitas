@@ -38,7 +38,7 @@ const BuyForm = (props) => {
     document.getElementsByName("5")[0].className="w3-light-blue-selected w3-margin";
     document.getElementsByName("10")[0].className="w3-light-blue w3-margin";
     document.getElementsByName("15")[0].className="w3-light-blue w3-margin";
-
+    console.log("frecuencia",document.getElementsByName("frecuency")[0].value)
     setPlan("5");
   }
   const onImageClick2 = ()=>{
@@ -98,7 +98,7 @@ const BuyForm = (props) => {
 
   <div className="stepTwo">
     <form className="aa"><h4 className="color1">DELIVER EVERY {" "}
-    <select>
+    <select name="frecuency">
       <option default value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

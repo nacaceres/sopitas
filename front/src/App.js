@@ -53,7 +53,6 @@ function App() {
         <div>{err}</div>
         {renderDocs()}
         <Footer />
-        <BuyForm></BuyForm>
       </div>
 
     </div>
