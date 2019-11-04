@@ -6,7 +6,7 @@ class Jumbotron extends Component {
     return (
       <div className="container-fluid jumbotron">
         <div className="jumbotronText">
-          <h4>Nutritious food for your busy lifestyle</h4>
+          <h3>Nutritious food for your busy lifestyle</h3>
         </div>
         <div className="jumbotronButton">
           <button type="submit" className="orderButton">

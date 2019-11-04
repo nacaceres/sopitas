@@ -54,7 +54,6 @@ function App() {
         {renderDocs()}
         <Footer />
       </div>
-
     </div>
   );
 }
