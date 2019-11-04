@@ -161,6 +161,19 @@ const BuyForm = props => {
       "test": true
    };
 
+let url = 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi';
+
+
+fetch(url, {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers:{
+    'Content-Type': 'application/json'
+  }
+}).then(res => res.json())
+.catch(error => console.error('Error:', error))
+.then(response => console.log('Success:', response));
+
 
   }
 
