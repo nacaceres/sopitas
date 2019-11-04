@@ -4,6 +4,7 @@ import Flavor from '../components/Flavor';
 const BuyForm = (props) => {
 
   const [flavors, setFlavors] = useState([]);
+  const [plan, setPlan]=useState("5");
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3001");
@@ -34,23 +35,29 @@ const BuyForm = (props) => {
   const onImageClick1 = ()=>{
    // document.getElementsByClassName("stepOne");
     console.log("PROBANDO IMAGEN 1");
-    document.getElementsByName("5")[0].className="w3-light-blue-selected";
-    document.getElementsByName("10")[0].className="w3-light-blue";
-    document.getElementsByName("15")[0].className="w3-light-blue";
+    document.getElementsByName("5")[0].className="w3-light-blue-selected w3-margin";
+    document.getElementsByName("10")[0].className="w3-light-blue w3-margin";
+    document.getElementsByName("15")[0].className="w3-light-blue w3-margin";
+
+    setPlan("5");
   }
   const onImageClick2 = ()=>{
     // document.getElementsByClassName("stepOne");
      console.log("PROBANDO IMAGEN 2");
-     document.getElementsByName("5")[0].className="w3-light-blue";
-    document.getElementsByName("10")[0].className="w3-light-blue-selected";
-    document.getElementsByName("15")[0].className="w3-light-blue";
+     document.getElementsByName("5")[0].className="w3-light-blue w3-margin";
+    document.getElementsByName("10")[0].className="w3-light-blue-selected w3-margin";
+    document.getElementsByName("15")[0].className="w3-light-blue w3-margin";
+
+    setPlan("10");
    }
    const onImageClick3 = ()=>{
     // document.getElementsByClassName("stepOne");
      console.log("PROBANDO IMAGEN 3");
-     document.getElementsByName("5")[0].className="w3-light-blue";
-    document.getElementsByName("10")[0].className="w3-light-blue";
-    document.getElementsByName("15")[0].className="w3-light-blue-selected";
+     document.getElementsByName("5")[0].className="w3-light-blue w3-margin";
+    document.getElementsByName("10")[0].className="w3-light-blue w3-margin";
+    document.getElementsByName("15")[0].className="w3-light-blue-selected w3-margin";
+
+    setPlan("15");
    }
 
 
@@ -60,7 +67,7 @@ const BuyForm = (props) => {
   <h2 className="color4">CHOOSE YOUR PLAN</h2>
 
   <div className="grilla" >
-    <div className="w3-light-blue w3-margin" name="5" onClick={onImageClick1} >
+    <div className="w3-light-blue-selected w3-margin" name="5" onClick={onImageClick1} >
     <div className=" w3-center">
       <h3>5 SOPITAS 25$</h3>
       <img src="https://recetasconquinoa.es/img/sopa-de-quinoa-774.jpg" width="200px" alt="Avatar"/>
