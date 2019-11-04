@@ -13,14 +13,14 @@ const Flavor = (props) => {
     {
       let aux = count;
       setCount(count-1);
-      props.callBack(props.name, aux-1)
+      props.callBack(props.name, aux-1, props.aux)
     }
 
   }
   const handleChangePlus= (evt) =>{
      let aux = count;
       setCount(count+1);
-      props.callBack(props.name, aux+1)
+      props.callBack(props.name, aux+1, props.aux)
   }
 
 

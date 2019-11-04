@@ -30,6 +30,12 @@ const BuyForm = props => {
           // setErr(JSON.stringify(data.msg));
         } else {
           setFlavors(data);
+          let arr = [];
+          for(let i=0; i<Object.keys(data).length;i++)
+          {
+              arr.push({name:data[i].name, value:0})
+          }
+          setFlavorsSelected(arr);
         }
       });
   }, []);
@@ -65,10 +71,12 @@ const BuyForm = props => {
     setPlan("15");
   };
 
-  function callBackFunction(name, value) {
-    console.log("prueba call back:", name, value);
+  function callBackFunction(name, value, key) {
+    console.log("prueba call back:", name, value, key);
     let str = name+":"+"'"+value+"'";
-    setFlavorsSelected([{name:name+"", value:value}]);
+    let act = flavorsSelected;
+    act[key]={name:name+"", value:value}
+    setFlavorsSelected(act);
     console.log(flavorsSelected);
   };
 
@@ -144,7 +152,7 @@ const BuyForm = props => {
       </ol>
       <div className="grilla">
         {flavors.map((p, i) => (
-          <Flavor name={p.name} key={i} image={p.imageurl} callBack={callBackFunction}></Flavor>
+          <Flavor name={p.name} key={i} aux={i} image={p.imageurl} callBack={callBackFunction}></Flavor>
         ))}
       </div>
 
