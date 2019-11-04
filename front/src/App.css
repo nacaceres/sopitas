@@ -70,6 +70,23 @@ body {
   background-color: #752929;
 }
 
+.sessionBotton {
+  color: white;
+  background-color: #f53838;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  max-width: 400px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sessionBotton:hover,
+.sessionBotton:focus {
+  background-color: #752929;
+}
+
 .jumbotron {
   background: url("./img/banner/banner1.jpg") center center;
   background-size: cover;

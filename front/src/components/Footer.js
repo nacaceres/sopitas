@@ -7,7 +7,10 @@ class Footer extends Component {
       <div className="container-fluid background-color-2">
         <h3 className="footer-title color1">CONTACT US &#38; FEEDBACK</h3>
         <div className="three-items-row">
-          <a href="mailto:em@i.l" className="fa fa-google card1">
+          <a
+            href="mailto:sopitascanada@gmail.com"
+            className="fa fa-google card1"
+          >
             <p className="no-visible">Mail to sopitas</p>
           </a>
           <a
@@ -23,13 +26,13 @@ class Footer extends Component {
             <p className="no-visible">Sopitas Facebook</p>
           </a>
         </div>
-        <br />
+        {/* <br />
         <a href="/" className="link color1">
           <h6>ABOUT US</h6>
         </a>
         <a href="/" className="link color1">
           <h6>CONDITIONS</h6>
-        </a>
+        </a> */}
       </div>
     );
   }
