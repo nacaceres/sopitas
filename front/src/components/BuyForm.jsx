@@ -8,6 +8,7 @@ import plan3 from "../img/sopitas/sopitas5.jpg";
 const BuyForm = props => {
   const [flavors, setFlavors] = useState([]);
   const [plan, setPlan] = useState("5");
+  const [flavorsSelected, setFlavorsSelected] = useState([]);
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3001");
@@ -62,6 +63,13 @@ const BuyForm = props => {
       "w3-light-blue-selected w3-margin";
 
     setPlan("15");
+  };
+
+  function callBackFunction(name, value) {
+    console.log("prueba call back:", name, value);
+    let str = name+":"+"'"+value+"'";
+    setFlavorsSelected([{name:name+"", value:value}]);
+    console.log(flavorsSelected);
   };
 
   return (
@@ -136,7 +144,7 @@ const BuyForm = props => {
       </ol>
       <div className="grilla">
         {flavors.map((p, i) => (
-          <Flavor name={p.name} key={i} image={p.imageurl}></Flavor>
+          <Flavor name={p.name} key={i} image={p.imageurl} callBack={callBackFunction}></Flavor>
         ))}
       </div>
 
