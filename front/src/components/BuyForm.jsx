@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Flavor from "../components/Flavor";
 
 import plan1 from "../img/sopitas/sopitas1.jpg";
@@ -152,7 +153,7 @@ const BuyForm = props => {
          },
          "type": "AUTHORIZATION_AND_CAPTURE",
          "paymentMethod": "VISA",
-         "paymentCountry": "PA",
+         "paymentCountry": "CO",
          "payer": {
             "fullName": "APPROVED",
             "emailAddress": "test@payulatam.com"
@@ -171,15 +172,17 @@ const BuyForm = props => {
 let url = 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi';
 
 
-fetch(url, {
-  method: 'POST',
-  body: JSON.stringify(data),
-  headers:{
-    'Content-Type': 'application/json'
+axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) {
+  if(res.status==201) {
+    console.log("PAGO EXITOSO");
   }
-}).then(res => res.json())
-.catch(error => console.error('Error:', error))
-.then(function (response){console.log('Success:', response); orderNow()});
+})
+.catch(function(err) {
+  console.log(err);
+})
+.then(function() {
+  orderNow();
+});
 
 
   }
