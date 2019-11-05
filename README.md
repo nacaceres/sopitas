@@ -84,7 +84,7 @@ Camilo Beltran and Carlos Mendoza
 
 ## Link
 
-<a href="https://sopitas-app.herokuapp.com/">QueNota Web Application</a>
+<a href="https://sopitas-app.herokuapp.com/">Sopitas Web Application</a>
 
 <hr>
 
