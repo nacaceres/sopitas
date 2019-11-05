@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
+const passport = require("passport");
 const app = express();
 
 const MyMongoLib = require("../MyMongoLib");
@@ -37,5 +38,20 @@ router.post("/order", (req, res) => {
   console.log("Order", req);
   myMongoLib.sendOrder(req, res);
 });
+
+/* GET Google Authentication API. */
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/", session: false }),
+  function(req, res) {
+    var token = req.user.token;
+    res.redirect("http://localhost:3000?token=" + token);
+  }
+);
 
 module.exports = router;
