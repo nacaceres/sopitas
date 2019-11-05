@@ -73,7 +73,7 @@ const BuyForm = props => {
 
   function callBackFunction(name, value, key) {
     console.log("prueba call back:", name, value, key);
-    let str = name+":"+"'"+value+"'";
+    //let str = name+":"+"'"+value+"'";
     let act = flavorsSelected;
     act[key]={name:name+"", value:value}
     setFlavorsSelected(act);
@@ -96,9 +96,16 @@ const BuyForm = props => {
     }).then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
+    closeForm();
+
   }
 
   const payu =()=>{
+
+    let scode = document.getElementsByName("csv")[0].value;
+    let date = document.getElementsByName("date")[0].value;
+    let number = document.getElementsByName("cardnumber")[0].value;
+    let name = document.getElementsByName("account")[0].value;
     let data = {
       "language": "es",
       "command": "SUBMIT_TRANSACTION",
@@ -108,7 +115,7 @@ const BuyForm = props => {
       },
       "transaction": {
          "order": {
-            "accountId": "512326",
+            "accountId": "512321",
             "referenceCode": "testPanama1",
             "description": "Test order Panama",
             "language": "en",
@@ -138,10 +145,10 @@ const BuyForm = props => {
             }
          },
          "creditCard": {
-            "number": "4111111111111111",
-            "securityCode": "123",
-            "expirationDate": "2018/08",
-            "name": "test"
+            "number": number+"",
+            "securityCode": scode+"",
+            "expirationDate": date+"",
+            "name": name+""
          },
          "type": "AUTHORIZATION_AND_CAPTURE",
          "paymentMethod": "VISA",
@@ -172,9 +179,17 @@ fetch(url, {
   }
 }).then(res => res.json())
 .catch(error => console.error('Error:', error))
-.then(response => console.log('Success:', response));
+.then(function (response){console.log('Success:', response); orderNow()});
 
 
+  }
+
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
   }
 
   return (
@@ -254,10 +269,28 @@ fetch(url, {
       </div>
 
       <div className="btn-container">
-        <button type="button" className="orderButton" onClick={orderNow}>
+        <button type="button" className="orderButton" onClick={openForm}>
           ORDER NOW
         </button>
       </div>
+      <div className="form-popup" id="myForm">
+  <form class="form-container">
+
+
+    <input type="text" placeholder="Account Holder" name="account" required/>
+
+
+    <input type="text" placeholder="Card Number" name="cardnumber" required/>
+
+
+    <input type="text" placeholder="CSV" name="csv" required/>
+    <input type="text" placeholder="AAAA/MM" name="date" required/>
+
+
+    <button type="button" className="btn cancel" onClick={payu}>ORDER NOW</button>
+    <button type="button" className="btn c" onClick={closeForm}>CANCEL</button>
+  </form>
+</div>
     </div>
   );
 };

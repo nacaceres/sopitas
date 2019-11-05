@@ -10,12 +10,10 @@ import Information from "./components/Information";
 import OurHistory from "./components/OurHistory";
 import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
-import Variety from "./components/Variety";
 import VarietyList from "./components/VarietyList";
 
 function App() {
   const [docs, setDocs] = useState([]);
-  const [varieties, setVarieties] = useState([]);
   const [err, setErr] = useState("");
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from "react";
+import React from "react";
 
 
 const Variety = (props) => {
@@ -12,7 +12,7 @@ const Variety = (props) => {
   return (
   <div className="flavor">
     <h3 className="color1">{name}</h3>
-    <img className="image-flavor" src={url2} alt="Flavor image" height="350" width="350"></img>
+    <img className="image-flavor" src={url2} alt="Flavor" height="350" width="350"></img>
     <h4 className="color1">DESCRIPTION</h4>
     {description}
     <h4 className="color1">INGREDIENTS</h4>
