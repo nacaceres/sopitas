@@ -11,6 +11,13 @@ body {
   padding: 1px;
 }
 
+.banner-row-alert {
+  background-color: #752929;
+  color: white;
+  text-align: center;
+  padding: 1px;
+}
+
 .logo-row {
   text-align: center;
 }

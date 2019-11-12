@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import "../App";
 
-import snack from "../img/photos/snack.png";
-import workout from "../img/photos/workout.png";
-import meal from "../img/photos/meal.png";
-import flavours from "../img/photos/flavours.png";
-import delivery from "../img/photos/delivery.png";
-import cook from "../img/photos/cook.png";
+import snack from "../img/icons/snack.png";
+import workout from "../img/icons/workout.png";
+import meal from "../img/icons/meal.png";
+import flavours from "../img/icons/plan.png";
+import delivery from "../img/icons/deliver.png";
+import cook from "../img/icons/microwave.png";
 
 class Information extends Component {
   render() {

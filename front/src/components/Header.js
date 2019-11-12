@@ -13,6 +13,12 @@ class Header extends Component {
             &gt;&gt;&gt;
           </h5>
         </div>
+        <div className="banner-row-alert">
+          <h6 className="brand-name">
+            &lt;&lt;&lt; THIS PAGE IS UNDER CONSTRUCTION, SOME COMPONENTS CAN FAIL
+            &gt;&gt;&gt;
+          </h6>
+        </div>
         <div className="logo-row">
           <a href="/">
             <img className="logo" src={logo} alt="Sopitas Logo" />
