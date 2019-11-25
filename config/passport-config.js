@@ -1,48 +1,50 @@
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20");
-const User = require("../models/user-model");
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
+const session = require("express-session");
+
+const User = require("../models/user-local-model");
+
 require("dotenv").config();
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
+const configureAuthLocal = app => {
+  const authenticateUser = async (email, password, done) => {
+    const user = User.findOne({ email });
+    if (user === null) {
+      return done(null, false, { message: "No user with that email" });
+    }
 
-passport.deserializeUser((id, done) => {
-  User.findById(id).then(user => {
+    try {
+      if (await bcrypt.compare(password, user.password)) {
+        return done(null, user);
+      } else {
+        return done(null, false, { message: "Password incorrect" });
+      }
+    } catch (err) {
+      return done(err);
+    }
+  };
+
+  passport.use(new LocalStrategy({ usernameField: "email" }, authenticateUser));
+
+  passport.serializeUser((user, done) => done(null, user.id));
+
+  passport.deserializeUser((id, done) => {
+    const user = User.findById(id);
     done(null, user);
   });
-});
 
-passport.use(
-  new GoogleStrategy(
-    {
-      // options for the strategy
-      callbackURL: "/auth/google/redirect",
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    },
-    (accessToken, refreshToken, profile, done) => {
-      // check if user already exists in or db
-      User.findOne({ googleId: profile.id }).then(currentUser => {
-        if (currentUser) {
-          // already have the user
-          console.log("user is", currentUser);
-          done(null, currentUser);
-        } else {
-          // if not create user in our db
-          new User({
-            username: profile.displayName,
-            googleId: profile.id,
-            image: profile._json.picture,
-            email: profile._json.email
-          })
-            .save()
-            .then(newUser => {
-              console.log("new user created", newUser);
-              done(null, newUser);
-            });
-        }
-      });
-    }
-  )
-);
+  app.use(
+    session({
+      cookie: {},
+      resave: false,
+      saveUninitialized: false,
+      secret: process.env.SESSION_SECRET
+    })
+  );
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+};
+
+module.exports = configureAuthLocal;

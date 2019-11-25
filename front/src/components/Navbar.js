@@ -7,13 +7,10 @@ import "../App";
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isLogedIn: false,
-      photo: ""
-    };
   }
 
   render() {
+    const backURL = process.env.BACK_URL || "http://localhost:3001";
     return (
       <div className="container-fluid sticky-top">
         <div className="navbar-row">
@@ -30,14 +27,19 @@ class Navbar extends Component {
             <Link to={"/ourHistory"} className="nav-link">
               OUR HISTORY
             </Link>
-            {!this.props.isLogedIn ? (
-              <Link to={"/login"} className="nav-link">
-                LOGIN
-              </Link>
+            {!this.props.user ? (
+              <a className="nav-link" href={`${backURL}/auth/google`}>
+                LOGIN WITH GOOGLE
+              </a>
             ) : (
-              <Link to={"/logout"} className="nav-link">
+              <a className="nav-link" href={`${backURL}/auth/logout`}>
+                <img
+                  className="profile-img"
+                  src={this.props.user.image}
+                  alt="Profile picture"
+                />
                 LOGOUT
-              </Link>
+              </a>
             )}
           </nav>
         </div>
