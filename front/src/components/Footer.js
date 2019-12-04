@@ -1,5 +1,10 @@
 import React, { Component } from "react";
+
 import "../App";
+
+import mail from "../img/social-media/mail.png";
+import instagram from "../img/social-media/instagram.png";
+import facebook from "../img/social-media/facebook.png";
 
 class Footer extends Component {
   render() {
@@ -7,32 +12,24 @@ class Footer extends Component {
       <div className="container-fluid background-color-2">
         <h3 className="footer-title color1">CONTACT US &#38; FEEDBACK</h3>
         <div className="three-items-row">
-          <a
-            href="mailto:sopitascanada@gmail.com"
-            className="fa fa-google card1"
-          >
-            <p className="no-visible">Mail to sopitas</p>
+          <a href="mailto:sopitascanada@gmail.com" className="card1">
+            <img className="social-media-icon" src={mail} alt="Mail sopitas" />
           </a>
-          <a
-            href="https://www.instagram.com/sopitas_canada/"
-            className="fa fa-instagram card2"
-          >
-            <p className="no-visible">Sopitas Instagram</p>
+          <a href="https://www.instagram.com/sopitas_canada/" className="card2">
+            <img
+              className="social-media-icon"
+              src={instagram}
+              alt="Instagram sopitas"
+            />
           </a>
-          <a
-            href="https://www.facebook.com/sopitascanada/"
-            className="fa fa-facebook card3"
-          >
-            <p className="no-visible">Sopitas Facebook</p>
+          <a href="https://www.facebook.com/sopitascanada/" className="card3">
+            <img
+              className="social-media-icon"
+              src={facebook}
+              alt="Facebook sopitas"
+            />
           </a>
         </div>
-        {/* <br />
-        <a href="/" className="link color1">
-          <h6>ABOUT US</h6>
-        </a>
-        <a href="/" className="link color1">
-          <h6>CONDITIONS</h6>
-        </a> */}
       </div>
     );
   }

@@ -9,14 +9,12 @@ class Header extends Component {
       <div className="container-fluid">
         <div className="banner-row">
           <h5 className="brand-name">
-            &lt;&lt;&lt; FREE DELIVERY IN GREATER MONTREAL EVERY SUNDAY
-            &gt;&gt;&gt;
+            FREE DELIVERY IN GREATER MONTREAL EVERY SUNDAY
           </h5>
         </div>
         <div className="banner-row-alert">
           <h6 className="brand-name">
-            &lt;&lt;&lt; THIS PAGE IS UNDER CONSTRUCTION, SOME COMPONENTS CAN FAIL
-            &gt;&gt;&gt;
+            THIS PAGE IS UNDER CONSTRUCTION, SOME COMPONENTS CAN FAIL
           </h6>
         </div>
         <div className="logo-row">

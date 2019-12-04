@@ -19,7 +19,7 @@ class Information extends Component {
           <div className="card card1">
             <img src={snack} alt="Snack icon" className="card-img-top icon" />
             <div className="card-body">
-              <h5>As a snack</h5>
+              <p>As a snack</p>
             </div>
           </div>
           <div className="card card2">
@@ -29,13 +29,13 @@ class Information extends Component {
               className="card-img-top icon"
             />
             <div className="card-body">
-              <h5>Before or after workout</h5>
+              <p>Before or after workout</p>
             </div>
           </div>
           <div className="card card3">
             <img src={meal} alt="Meal icon" className="card-img-top icon" />
             <div className="card-body">
-              <h5>Starter or part of your main course meal</h5>
+              <p>Starter or part of your main course meal</p>
             </div>
           </div>
         </div>
@@ -50,10 +50,10 @@ class Information extends Component {
               className="card-img-top icon"
             />
             <div className="card-body">
-              <h5>
+              <p>
                 Choose your plan, order your favorite flavours and delivery
                 frequency
-              </h5>
+              </p>
             </div>
           </div>
           <div className="card card2">
@@ -63,16 +63,16 @@ class Information extends Component {
               className="card-img-top icon"
             />
             <div className="card-body">
-              <h5>We deliver weekly to your door. Freeze at your reception</h5>
+              <p>We deliver weekly to your door. Freeze at your reception</p>
             </div>
           </div>
           <div className="card card3">
             <img src={cook} alt="Cook icon" className="card-img-top icon" />
             <div className="card-body">
-              <h5>
+              <p>
                 Warm 4 - 5 microwave or 15 mins storve and enjoy at any time of
                 your day
-              </h5>
+              </p>
             </div>
           </div>
         </div>
