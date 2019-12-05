@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import "./style/home.css";
 import "./style/footer.css";
+import "./style/order.css";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";

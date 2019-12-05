@@ -7,6 +7,10 @@
   justify-items: center;
 }
 
+.center {
+  text-align: center;
+}
+
 .card {
   text-align: center;
   align-content: center;
@@ -14,6 +18,7 @@
   color: #4b8a68;
   border: none !important;
   width: 230px;
+  font-size: 1.2em;
 }
 
 .icon {
@@ -38,4 +43,28 @@
 
 .card3 {
   grid-column: 4;
+}
+
+.jumbotron-squash {
+  background: url("../img/photos/squash-soup.jpeg") center center;
+  background-size: cover;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-template-rows: repeat(5, 1fr);
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.order-now-button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  grid-column: 6;
+  grid-row: 5;
+}
+
+.p-text {
+  font-size: 1.2em;
 }

@@ -347,8 +347,10 @@ ol li::before {
 .w3-light-blue-selected,
 .w3-hover-light-blue:hover {
   color: #000 !important;
-  background-color: #c7d6ca !important;
+  background-color: #4b8a68 !important;
   width: 300px;
+  border-style: solid;
+  border-color: black;
 }
 
 .two-row {

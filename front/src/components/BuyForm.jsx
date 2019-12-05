@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import Flavor from "../components/Flavor";
 
-import plan1 from "../img/sopitas/sopitas1.jpg";
-import plan2 from "../img/sopitas/sopitas3.jpg";
-import plan3 from "../img/sopitas/sopitas5.jpg";
+import plan1 from "../img/plans/plan-1.png";
+import plan2 from "../img/plans/plan-2.png";
+import plan3 from "../img/plans/plan-3.png";
 
 const BuyForm = props => {
   const [flavors, setFlavors] = useState([]);
@@ -32,9 +32,8 @@ const BuyForm = props => {
         } else {
           setFlavors(data);
           let arr = [];
-          for(let i=0; i<Object.keys(data).length;i++)
-          {
-              arr.push({name:data[i].name, value:0})
+          for (let i = 0; i < Object.keys(data).length; i++) {
+            arr.push({ name: data[i].name, value: 0 });
           }
           setFlavorsSelected(arr);
         }
@@ -76,116 +75,112 @@ const BuyForm = props => {
     console.log("prueba call back:", name, value, key);
     //let str = name+":"+"'"+value+"'";
     let act = flavorsSelected;
-    act[key]={name:name+"", value:value}
+    act[key] = { name: name + "", value: value };
     setFlavorsSelected(act);
     console.log(flavorsSelected);
-  };
+  }
 
-  const orderNow = () =>{
-
+  const orderNow = () => {
     var frecuency = document.getElementsByName("frecuency")[0].value;
-    var data = {plan: plan,frecuency:frecuency, flavors:flavorsSelected};
+    var data = { plan: plan, frecuency: frecuency, flavors: flavorsSelected };
     console.log("data ordernowm", data);
 
     fetch("/order", {
-
-      method: 'POST', // or 'PUT'
+      method: "POST", // or 'PUT'
       body: JSON.stringify(data), // data can be `string` or {object}!
-      headers:{
-        'Content-Type': 'application/json'
+      headers: {
+        "Content-Type": "application/json"
       }
-    }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+    })
+      .then(res => res.json())
+      .catch(error => console.error("Error:", error))
+      .then(response => console.log("Success:", response));
     closeForm();
+  };
 
-  }
-
-  const payu =()=>{
-
+  const payu = () => {
     let scode = document.getElementsByName("csv")[0].value;
     let date = document.getElementsByName("date")[0].value;
     let number = document.getElementsByName("cardnumber")[0].value;
     let name = document.getElementsByName("account")[0].value;
     let data = {
-      "language": "es",
-      "command": "SUBMIT_TRANSACTION",
-      "merchant": {
-         "apiLogin": "pRRXKOl8ikMmt9u",
-         "apiKey": "4Vj8eK4rloUd272L48hsrarnUA"
+      language: "es",
+      command: "SUBMIT_TRANSACTION",
+      merchant: {
+        apiLogin: "pRRXKOl8ikMmt9u",
+        apiKey: "4Vj8eK4rloUd272L48hsrarnUA"
       },
-      "transaction": {
-         "order": {
-            "accountId": "512321",
-            "referenceCode": "testPanama1",
-            "description": "Test order Panama",
-            "language": "en",
-            "notifyUrl": "http://pruebaslap.xtrweb.com/lap/pruebconf.php",
-            "signature": "a2de78b35599986d28e9cd8d9048c45d",
-            "shippingAddress": {
-               "country": "PA"
-            },
-            "buyer": {
-               "fullName": "APPROVED",
-               "emailAddress": "test@payulatam.com",
-               "dniNumber": "1155255887",
-               "shippingAddress": {
-                  "street1": "Calle 93 B 17 – 25",
-                  "city": "Panama",
-                  "state": "Panama",
-                  "country": "PA",
-                  "postalCode": "000000",
-                  "phone": "5582254"
-               }
-            },
-            "additionalValues": {
-               "TX_VALUE": {
-                  "value": 5,
-                  "currency": "USD"
-               }
+      transaction: {
+        order: {
+          accountId: "512321",
+          referenceCode: "testPanama1",
+          description: "Test order Panama",
+          language: "en",
+          notifyUrl: "http://pruebaslap.xtrweb.com/lap/pruebconf.php",
+          signature: "a2de78b35599986d28e9cd8d9048c45d",
+          shippingAddress: {
+            country: "PA"
+          },
+          buyer: {
+            fullName: "APPROVED",
+            emailAddress: "test@payulatam.com",
+            dniNumber: "1155255887",
+            shippingAddress: {
+              street1: "Calle 93 B 17 – 25",
+              city: "Panama",
+              state: "Panama",
+              country: "PA",
+              postalCode: "000000",
+              phone: "5582254"
             }
-         },
-         "creditCard": {
-            "number": number+"",
-            "securityCode": scode+"",
-            "expirationDate": date+"",
-            "name": name+""
-         },
-         "type": "AUTHORIZATION_AND_CAPTURE",
-         "paymentMethod": "VISA",
-         "paymentCountry": "CO",
-         "payer": {
-            "fullName": "APPROVED",
-            "emailAddress": "test@payulatam.com"
-         },
-         "ipAddress": "127.0.0.1",
-         "cookie": "cookie_52278879710130",
-         "userAgent": "Firefox",
-         "extraParameters": {
-            "INSTALLMENTS_NUMBER": 1,
-            "RESPONSE_URL": "http://www.misitioweb.com/respuesta.php"
-         }
+          },
+          additionalValues: {
+            TX_VALUE: {
+              value: 5,
+              currency: "USD"
+            }
+          }
+        },
+        creditCard: {
+          number: number + "",
+          securityCode: scode + "",
+          expirationDate: date + "",
+          name: name + ""
+        },
+        type: "AUTHORIZATION_AND_CAPTURE",
+        paymentMethod: "VISA",
+        paymentCountry: "CO",
+        payer: {
+          fullName: "APPROVED",
+          emailAddress: "test@payulatam.com"
+        },
+        ipAddress: "127.0.0.1",
+        cookie: "cookie_52278879710130",
+        userAgent: "Firefox",
+        extraParameters: {
+          INSTALLMENTS_NUMBER: 1,
+          RESPONSE_URL: "http://www.misitioweb.com/respuesta.php"
+        }
       },
-      "test": true
-   };
+      test: true
+    };
 
-let url = 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi';
+    let url = "https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi";
 
-
-axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) {
-  if(res.status==201) {
-    console.log("PAGO EXITOSO");
-  }
-})
-.catch(function(err) {
-  console.log(err);
-})
-.then(function() {
-  orderNow();
-});
-
-
-  }
+    axios
+      .post("https://cors-anywhere.herokuapp.com/" + url, data)
+      .then(function(res) {
+        if (res.status == 201) {
+          console.log("PAGO EXITOSO");
+        }
+      })
+      .catch(function(err) {
+        console.log(err);
+      })
+      .then(function() {
+        orderNow();
+      });
+  };
 
   function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -207,9 +202,7 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
               onClick={onImageClick1}
             >
               <div className=" w3-center">
-                <h3>5 SOPITAS 25$</h3>
-                <img src={plan1} width="200px" alt="Avatar" />
-                <h4>5$/PORTION</h4>
+                <img src={plan1} width="200px" alt="Plan 1" />
               </div>
             </div>
 
@@ -219,9 +212,7 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
               onClick={onImageClick2}
             >
               <div className=" w3-center">
-                <h3>10 SOPITAS 45$</h3>
-                <img src={plan2} width="200px" alt="Avatar" />
-                <h4>4,5$/PORTION</h4>
+                <img src={plan2} width="200px" alt="Plan 2" />
               </div>
             </div>
 
@@ -231,9 +222,7 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
               onClick={onImageClick3}
             >
               <div className=" w3-center">
-                <h3>15 SOPITAS 60$</h3>
-                <img src={plan3} width="200px" alt="Avatar" />
-                <h4>4$/PORTION</h4>
+                <img src={plan3} width="200px" alt="Plan 3" />
               </div>
             </div>
           </div>
@@ -244,8 +233,8 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
 
           <div className="stepTwo">
             <form className="aa">
-              <h5 className="color1">
-                DELIVER EVERY{" "}
+              <p className="p-text">
+                Deliver every{" "}
                 <select name="frecuency">
                   <option default value="1">
                     1
@@ -254,8 +243,8 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>{" "}
-                WEEKS
-              </h5>
+                weeks
+              </p>
             </form>
           </div>
         </li>
@@ -267,7 +256,13 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
       </ol>
       <div className="grilla">
         {flavors.map((p, i) => (
-          <Flavor name={p.name} key={i} aux={i} image={p.url} callBack={callBackFunction}></Flavor>
+          <Flavor
+            name={p.name}
+            key={i}
+            aux={i}
+            image={p.url}
+            callBack={callBackFunction}
+          ></Flavor>
         ))}
       </div>
 
@@ -277,23 +272,32 @@ axios.post("https://cors-anywhere.herokuapp.com/"+url, data).then(function(res) 
         </button>
       </div>
       <div className="form-popup" id="myForm">
-  <form class="form-container">
+        <form class="form-container">
+          <input
+            type="text"
+            placeholder="Account Holder"
+            name="account"
+            required
+          />
 
+          <input
+            type="text"
+            placeholder="Card Number"
+            name="cardnumber"
+            required
+          />
 
-    <input type="text" placeholder="Account Holder" name="account" required/>
+          <input type="text" placeholder="CSV" name="csv" required />
+          <input type="text" placeholder="AAAA/MM" name="date" required />
 
-
-    <input type="text" placeholder="Card Number" name="cardnumber" required/>
-
-
-    <input type="text" placeholder="CSV" name="csv" required/>
-    <input type="text" placeholder="AAAA/MM" name="date" required/>
-
-
-    <button type="button" className="btn cancel" onClick={payu}>ORDER NOW</button>
-    <button type="button" className="btn c" onClick={closeForm}>CANCEL</button>
-  </form>
-</div>
+          <button type="button" className="btn cancel" onClick={payu}>
+            ORDER NOW
+          </button>
+          <button type="button" className="btn c" onClick={closeForm}>
+            CANCEL
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

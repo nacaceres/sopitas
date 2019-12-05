@@ -9,7 +9,7 @@ import facebook from "../img/social-media/facebook.png";
 class Footer extends Component {
   render() {
     return (
-      <div className="container-fluid background-color-2">
+      <div className="container-fluid background-color-2 footer">
         <h3 className="footer-title color1">CONTACT US &#38; FEEDBACK</h3>
         <div className="three-items-row">
           <a href="mailto:sopitascanada@gmail.com" className="card1">
