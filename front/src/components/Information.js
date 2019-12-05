@@ -13,12 +13,29 @@ import cook from "../img/icons/microwave.png";
 import plan1 from "../img/plans/plan-1.png";
 import plan2 from "../img/plans/plan-2.png";
 import plan3 from "../img/plans/plan-3.png";
+import greenSoup from "../img/sopitas/green-soup.jpg";
 
 class Information extends Component {
   render() {
     return (
       <div className="container">
-        <h2 className="color4 center">WHEN EAT SOPITAS?</h2>
+        <h2 className="color4 center">WHAT IS SOPITAS?</h2>
+        <div className="divider"></div>
+        <div className="two-row-banner">
+          <img
+            src={greenSoup}
+            alt="Sopitas history image"
+            className="banner-img"
+          />
+          <p className="p-text center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            commodi, laudantium tenetur fugiat id magni totam mollitia
+            asperiores aliquam molestias porro, aspernatur illo quos sunt veniam
+            perferendis consequatur quod obcaecati?
+          </p>
+        </div>
+
+        <h2 className="color4 center">WHEN TO EAT SOPITAS?</h2>
         <div className="divider"></div>
         <div className="three-items-row">
           <div className="card card1">
