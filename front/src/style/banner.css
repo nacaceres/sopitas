@@ -1,0 +1,7 @@
+.squash-banner-text {
+  text-align: center;
+  grid-column: 4;
+  grid-row: 3;
+  color: white;
+  text-shadow: 1px 1px black;
+}

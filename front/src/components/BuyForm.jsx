@@ -195,6 +195,7 @@ const BuyForm = props => {
       <ol>
         <li>
           <h2 className="color4">CHOOSE YOUR PLAN</h2>
+          <div className="divider"></div>
           <div className="grilla">
             <div
               className="w3-light-blue-selected w3-margin"
@@ -230,7 +231,7 @@ const BuyForm = props => {
 
         <li>
           <h2 className="color4">CHOOSE YOUR FRECUENCY</h2>
-
+          <div className="divider"></div>
           <div className="stepTwo">
             <form className="aa">
               <p className="p-text">
@@ -251,6 +252,7 @@ const BuyForm = props => {
         <br></br>
         <li>
           <h2 className="color4">CHOOSE FLAVORS</h2>
+          <div className="divider"></div>
         </li>
         <br></br>
       </ol>

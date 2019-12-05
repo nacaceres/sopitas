@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import "../App";
 
+import SquashBanner from "./banners/SquashBanner";
+
 import snack from "../img/icons/snack.png";
 import workout from "../img/icons/workout.png";
 import meal from "../img/icons/meal.png";
@@ -43,7 +45,7 @@ class Information extends Component {
           </div>
         </div>
 
-        <div className="jumbotron-squash rounded"></div>
+        <SquashBanner />
 
         <h2 className="color4 center">HOW IT WORKS?</h2>
         <div className="divider"></div>

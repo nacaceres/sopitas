@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import Variety from '../components/Variety';
+import React, { useEffect, useState } from "react";
+import Variety from "../components/Variety";
 
-const VarietyList = (props)=>{
-
+const VarietyList = props => {
   const [varieties, setVarieties] = useState([]);
   const [err, setErr] = useState("");
 
@@ -27,30 +26,36 @@ const VarietyList = (props)=>{
           setVarieties(data);
         }
       });
-
   }, []);
 
-
-
-
-
-  const onClickRedirect =()=>{
+  const onClickRedirect = () => {
     // Realizar redirección de path
-  }
+  };
 
-  return(
-    <div>
-      <h2 className="color1">OUR FLAVORS</h2>
-    <div className="container-fluid">
-          <div className="three-items-row">
-          {varieties.map(d => <Variety key={d.name} name={d.name} ingredients={d.ingredients} description={d.description} url={d.url}></Variety>)}
-          </div>
+  return (
+    <div className="container">
+      <h2 className="color4 tittle">OUR FLAVORS</h2>
+      <div className="divider"></div>
+      <div className="container-fluid">
+        <div className="three-items-row">
+          {varieties.map(d => (
+            <Variety
+              key={d.name}
+              name={d.name}
+              ingredients={d.ingredients}
+              description={d.description}
+              url={d.url}
+            ></Variety>
+          ))}
+        </div>
+      </div>
+      <div className="btn-container">
+        <button type="button" className="orderButton" onClick={onClickRedirect}>
+          ORDER NOW
+        </button>
+      </div>
     </div>
-    <div className="btn-container">
-    <button type="button" className="btn btn-lg color5" onClick={onClickRedirect}>ORDER NOW</button>
-  </div>
-    </div>
-  )
-}
+  );
+};
 
 export default VarietyList;

@@ -5,6 +5,7 @@ import "./App.css";
 import "./style/home.css";
 import "./style/footer.css";
 import "./style/order.css";
+import "./style/banner.css";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";

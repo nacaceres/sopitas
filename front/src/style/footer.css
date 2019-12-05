@@ -16,7 +16,6 @@
 .social-media-icon:hover,
 .social-media-icon:focus {
   opacity: 0.7;
-  background-color: #4b8a68;
   border-style: solid;
   border-color: white;
 }
