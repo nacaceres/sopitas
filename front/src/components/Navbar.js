@@ -9,7 +9,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const backURL = "https://sopitas-app.herokuapp.com/";
+    const backURL = "http://localhost:3001";
     return (
       <div className="container-fluid sticky-top">
         <div className="navbar-row">

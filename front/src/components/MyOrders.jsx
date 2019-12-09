@@ -1,11 +1,10 @@
-import React, {useEffect,useState} from 'react';
+import React, { useEffect, useState } from "react";
 const MyOrders = () => {
-
   const [orders, setOrders] = useState([]);
   const [err, setErr] = useState("");
 
   useEffect(() => {
-    const ws = new WebSocket("ws://sopitas-app.herokuapp.com/");
+    const ws = new WebSocket("ws://localhost:3001");
 
     ws.onopen = () => {
       console.log("Connected to ws");
@@ -27,25 +26,33 @@ const MyOrders = () => {
       });
   }, []);
 
-return (
-<table className="table">
-  <thead>
-  <tr>
-    <th>Plan</th>
-    <th>Frecuency</th>
-    <th>Flavors</th>
-  </tr>
-  </thead>
-  <tbody>
-{orders.map((d,i) => {
-return <tr key={d._id}>
-  <td>{d.plan+" Sopitas"}</td>
-  <td>{d.frecuency}</td>
-  <td>{d.flavors[0]["name"]+" "+d.flavors[0]["value"]}<br></br>{d.flavors[1]["name"]+" "+d.flavors[1]["value"]}<br></br>{d.flavors[2]["name"]+" "+d.flavors[2]["value"]}</td>
-
-</tr>
-})
-}
-</tbody>
-</table>)}
+  return (
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Frecuency</th>
+          <th>Flavors</th>
+        </tr>
+      </thead>
+      <tbody>
+        {orders.map((d, i) => {
+          return (
+            <tr key={d._id}>
+              <td>{d.plan + " Sopitas"}</td>
+              <td>{d.frecuency}</td>
+              <td>
+                {d.flavors[0]["name"] + " " + d.flavors[0]["value"]}
+                <br></br>
+                {d.flavors[1]["name"] + " " + d.flavors[1]["value"]}
+                <br></br>
+                {d.flavors[2]["name"] + " " + d.flavors[2]["value"]}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
 export default MyOrders;

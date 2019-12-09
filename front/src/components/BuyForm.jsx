@@ -14,7 +14,7 @@ const BuyForm = props => {
   const [flavorsSelected, setFlavorsSelected] = useState([]);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://sopitas-app.herokuapp.com/");
+    const ws = new WebSocket("ws://localhost:3001");
 
     ws.onopen = () => {
       console.log("Connected to ws");
