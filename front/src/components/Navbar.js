@@ -26,6 +26,13 @@ class Navbar extends Component {
             <Link to={"/ourHistory"} className="nav-link">
               OUR HISTORY
             </Link>
+            {this.props.user ? (
+              <a className="nav-link" href="/">
+                TRANSACTIONS
+              </a>
+            ) : (
+              <a></a>
+            )}
             {!this.props.user ? (
               <a className="nav-link" href={`${backURL}/auth/google`}>
                 LOGIN WITH GOOGLE

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import "./App.css";
 import "./style/home.css";
@@ -9,6 +9,7 @@ import "./style/banner.css";
 import "./style/jumbotron.css";
 import "./style/variety.css";
 import "./style/history.css";
+import "./style/notFound.css";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -18,6 +19,7 @@ import OurHistory from "./components/history/OurHistory";
 import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
 import Variety from "./components/varieties/Variety";
+import NotFoundPage from "./components/notFound/NotFoundPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -99,6 +101,8 @@ function App() {
             </React.Fragment>
           )}
         />
+        <Route path="/404" component={NotFoundPage} />
+        <Redirect to="/404" />
         <div>{err}</div>
         {renderDocs()}
         <Footer />
