@@ -12,6 +12,7 @@ const BuyForm = props => {
   const [flavors, setFlavors] = useState([]);
   const [plan, setPlan] = useState("5");
   const [flavorsSelected, setFlavorsSelected] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3001");
@@ -24,7 +25,14 @@ const BuyForm = props => {
         setFlavors(JSON.parse(msg.data));
       };
     };
-
+    fetch("/auth/getUser")
+      .then(res => res.json())
+      .then(_user => {
+        if (_user) {
+          setUser(_user);
+          //console.log(_user);
+        }
+      });
     fetch("varieties")
       .then(res => res.json())
       .then(data => {
@@ -40,7 +48,8 @@ const BuyForm = props => {
           setFlavorsSelected(arr);
         }
       });
-  }, []);
+  }
+  , []);
 
   const onImageClick1 = () => {
     // document.getElementsByClassName("stepOne");
@@ -83,7 +92,7 @@ const BuyForm = props => {
 
   const orderNow = () => {
     var frecuency = document.getElementsByName("frecuency")[0].value;
-    var data = { plan: plan, frecuency: frecuency, flavors: flavorsSelected };
+    var data = { plan: plan, frecuency: frecuency, flavors: flavorsSelected, user:user._id };
     console.log("data ordernowm", data);
 
     fetch("/order", {

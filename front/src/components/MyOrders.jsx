@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-const MyOrders = () => {
+const MyOrders = props => {
   const [orders, setOrders] = useState([]);
   const [err, setErr] = useState("");
 
+  const [user, setUser] = useState(null);
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3001");
 
@@ -14,6 +15,15 @@ const MyOrders = () => {
         setOrders(JSON.parse(msg.data));
       };
     };
+    fetch("/auth/getUser")
+      .then(res => res.json())
+      .then(_user => {
+        if (_user) {
+          setUser(_user);
+          console.log(_user);
+        }
+      });
+
     fetch("orders")
       .then(res => res.json())
       .then(data => {

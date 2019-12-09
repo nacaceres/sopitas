@@ -74,7 +74,7 @@ const MyMongoLib = function() {
       const testCol = db.collection("orders");
 
       return testCol
-        .find({})
+        .find()
         .limit(20)
         .toArray()
         .then(resolve)

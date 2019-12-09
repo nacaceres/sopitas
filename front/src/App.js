@@ -82,7 +82,7 @@ function App() {
           path="/myOrders"
           render={props => (
             <React.Fragment>
-              <MyOrders />
+              <MyOrders user={user}/>
             </React.Fragment>
           )}
         />
