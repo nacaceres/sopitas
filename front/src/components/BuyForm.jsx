@@ -8,14 +8,13 @@ import plan3 from "../img/plans/plan-3.png";
 
 import MyOrders from "../components/MyOrders";
 
-
 const BuyForm = props => {
   const [flavors, setFlavors] = useState([]);
   const [plan, setPlan] = useState("5");
   const [flavorsSelected, setFlavorsSelected] = useState([]);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3001");
+    const ws = new WebSocket("ws://sopitas-app.herokuapp.com/");
 
     ws.onopen = () => {
       console.log("Connected to ws");
@@ -97,26 +96,21 @@ const BuyForm = props => {
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
       .then(response => console.log("Success:", response));
-
   };
 
-
-  function createCheckoutSession (stripe){
-
+  function createCheckoutSession(stripe) {
     var frecuency = document.getElementsByName("frecuency")[0].value;
-    var aux = 30.0
-    var urlImage =""
-    if(plan == 5){
-      aux= 2500.0
-      urlImage="https://i.ibb.co/zhNnHn7/plan-1.png"
-    }
-    else if(plan==10){
-      aux = 4500.0
-      urlImage="https://i.ibb.co/z63KYKS/plan-2.png"
-    }
-    else{
-      aux=6000.0
-      urlImage="https://i.ibb.co/6NFjN0q/plan-3.png"
+    var aux = 30.0;
+    var urlImage = "";
+    if (plan == 5) {
+      aux = 2500.0;
+      urlImage = "https://i.ibb.co/zhNnHn7/plan-1.png";
+    } else if (plan == 10) {
+      aux = 4500.0;
+      urlImage = "https://i.ibb.co/z63KYKS/plan-2.png";
+    } else {
+      aux = 6000.0;
+      urlImage = "https://i.ibb.co/6NFjN0q/plan-3.png";
     }
 
     //var data = { plan: plan, frecuency: frecuency, flavors: flavorsSelected };
@@ -126,17 +120,16 @@ const BuyForm = props => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name:plan,
+        name: plan,
         quantity: 1,
         cost: aux,
         image: urlImage
-
       })
     }).then(function(result) {
       orderNow();
       return result.json();
-    })
-  };
+    });
+  }
 
   /* Get your Stripe publishable key to initialize Stripe.js */
   fetch("/config")
@@ -147,23 +140,18 @@ const BuyForm = props => {
       window.config = json;
       var stripe = window.Stripe(window.config.publicKey);
 
-      document.querySelector("#orderButton").addEventListener("click", function(evt) {
-        createCheckoutSession().then(function(data) {
-          stripe
-            .redirectToCheckout({
-              sessionId: data.sessionId
-            })
-            .then(
-              window.handleResult
-
-            );
+      document
+        .querySelector("#orderButton")
+        .addEventListener("click", function(evt) {
+          createCheckoutSession().then(function(data) {
+            stripe
+              .redirectToCheckout({
+                sessionId: data.sessionId
+              })
+              .then(window.handleResult);
+          });
         });
-      });
     });
-
-
-
-
 
   return (
     <div className="container" style={{ marginTop: 10 }}>

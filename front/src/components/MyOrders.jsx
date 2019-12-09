@@ -5,7 +5,7 @@ const MyOrders = () => {
   const [err, setErr] = useState("");
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3001");
+    const ws = new WebSocket("ws://sopitas-app.herokuapp.com/");
 
     ws.onopen = () => {
       console.log("Connected to ws");

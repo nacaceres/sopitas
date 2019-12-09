@@ -26,10 +26,8 @@ function App() {
   const [docs, setDocs] = useState([]);
   const [err, setErr] = useState("");
 
-  const backURL = process.env.BACK_URL || "http://localhost:3001";
-
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3001");
+    const ws = new WebSocket("ws://sopitas-app.herokuapp.com/");
 
     ws.onopen = () => {
       console.log("Connected to ws");
