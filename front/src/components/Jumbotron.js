@@ -9,9 +9,9 @@ class Jumbotron extends Component {
           <h3>Nutritious food for your busy lifestyle</h3>
         </div>
         <div className="jumbotronButton">
-          <button type="submit" className="orderButton">
+          <a className="orderButton" href="/order">
             ORDER NOW
-          </button>
+          </a>
         </div>
       </div>
     );

@@ -1,0 +1,106 @@
+.zucchiniAndSpinach {
+  width: 200px;
+  height: 159px;
+  overflow: hidden;
+  background: url("../img/sopitas/zucchini-1.png") no-repeat;
+  display: inline-block;
+  background-size: cover;
+  align-self: center;
+}
+
+.zucchiniAndSpinach:hover,
+.zucchiniAndSpinach:focus {
+  width: 200px;
+  height: 159px;
+  overflow: hidden;
+  background: url("../img/sopitas/zucchini-2.png") no-repeat;
+  display: inline-block;
+  background-size: cover;
+}
+
+.beetAndGinger {
+  width: 200px;
+  height: 159px;
+  overflow: hidden;
+  background: url("../img/sopitas/beets-1.png") no-repeat;
+  display: inline-block;
+  background-size: cover;
+  align-self: center;
+}
+
+.beetAndGinger:hover,
+.beetAndGinger:focus {
+  width: 200px;
+  height: 159px;
+  overflow: hidden;
+  background: url("../img/sopitas/beets-2.png") no-repeat;
+  display: inline-block;
+  background-size: cover;
+}
+
+.squashAndSweetPotato {
+  width: 200px;
+  height: 159px;
+  overflow: hidden;
+  background: url("../img/sopitas/squash-1.png") no-repeat;
+  display: inline-block;
+  background-size: cover;
+  align-self: center;
+}
+
+.squashAndSweetPotato:hover,
+.squashAndSweetPotato:focus {
+  width: 200px;
+  height: 159px;
+  overflow: hidden;
+  background: url("../img/sopitas/squash-2.png") no-repeat;
+  display: inline-block;
+  background-size: cover;
+}
+
+.variety-p-text {
+  color: black;
+  font-size: 1em;
+  text-align: justify;
+}
+
+.variety-p-text-2 {
+  color: #0000009d;
+  font-size: 0.8em;
+  text-align: justify;
+}
+
+.variety-three-items-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  align-content: center;
+  margin-top: 15px;
+  justify-items: center;
+}
+
+.variety-card {
+  text-align: center;
+  align-content: center;
+  margin: 15px;
+  color: #4b8a68;
+  border: none !important;
+  width: 280px;
+  font-size: 1.2em;
+}
+
+.variety-card-1 {
+  grid-column: 1;
+}
+
+.variety-card-2 {
+  grid-column: 2;
+}
+
+.variety-card-3 {
+  grid-column: 3;
+}
+
+.variety-list {
+  text-align: left;
+}

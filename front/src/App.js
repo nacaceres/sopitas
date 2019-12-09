@@ -6,15 +6,18 @@ import "./style/home.css";
 import "./style/footer.css";
 import "./style/order.css";
 import "./style/banner.css";
+import "./style/jumbotron.css";
+import "./style/variety.css";
+import "./style/history.css";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Information from "./components/Information";
-import OurHistory from "./components/OurHistory";
+import OurHistory from "./components/history/OurHistory";
 import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
-import VarietyList from "./components/VarietyList";
+import Variety from "./components/varieties/Variety";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -83,7 +86,7 @@ function App() {
           path="/varieties"
           render={props => (
             <React.Fragment>
-              <VarietyList />
+              <Variety />
             </React.Fragment>
           )}
         />

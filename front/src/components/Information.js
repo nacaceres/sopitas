@@ -115,9 +115,9 @@ class Information extends Component {
           </div>
         </div>
         <div className="order-now-button">
-          <button type="submit" className="orderButton">
+          <a className="orderButton" href="/order">
             ORDER NOW
-          </button>
+          </a>
         </div>
       </div>
     );

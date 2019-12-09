@@ -70,23 +70,6 @@ body {
   margin-right: 5px;
 }
 
-.orderButton {
-  color: white;
-  background-color: #f53838;
-  border: 2px solid white;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  font-weight: bold;
-  max-width: 400px;
-  cursor: pointer;
-  font-size: 22px;
-}
-
-.orderButton:hover,
-.orderButton:focus {
-  background-color: #752929;
-}
-
 .sessionBotton {
   color: white;
   background-color: #f53838;
@@ -364,18 +347,6 @@ ol li::before {
   margin-top: 15px;
   margin-bottom: 15px;
   justify-items: center;
-}
-
-.history-img {
-  max-width: 500px;
-  grid-column: 2;
-}
-
-.history-description {
-  grid-column: 3 / 5;
-  text-align: center;
-  align-self: center;
-  font-size: 1.2rem;
 }
 
 /* The popup form - hidden by default */

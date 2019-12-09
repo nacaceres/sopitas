@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-import "../App";
+import "../../App";
 
-import banner from "../img/banner/banner2.jpg";
+import banner from "../../img/banner/banner2.jpg";
 
 class OurHistory extends Component {
   render() {
     return (
       <div className="container">
-        <h2 className="color4">SOPITAS HISTORY</h2>
+        <h2 className="color4 tittle">SOPITAS HISTORY</h2>
         <div className="divider"></div>
         <div className="two-row">
           <img

@@ -25,8 +25,7 @@ const Flavor = props => {
       <img
         className="image-flavor"
         src={url}
-        alt="Flavor"
-        height="250"
+        alt={props.name}
         width="250"
       ></img>
 
