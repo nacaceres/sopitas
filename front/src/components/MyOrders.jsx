@@ -21,10 +21,7 @@ const MyOrders = props => {
         if (_user) {
           setUser(_user);
           console.log(_user);
-        }
-      });
-
-    fetch("orders")
+          fetch("orders?user="+_user._id)
       .then(res => res.json())
       .then(data => {
         console.log("Got data", data);
@@ -34,6 +31,10 @@ const MyOrders = props => {
           setOrders(data);
         }
       });
+        }
+      });
+
+
   }, []);
 
   return (

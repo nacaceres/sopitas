@@ -58,7 +58,7 @@ const MyMongoLib = function() {
       });
     });
 
-  MyMongoLib.getOrders = () =>
+  MyMongoLib.getOrders = user_p =>
   new Promise((resolve, reject) => {
     // Use connect method to connect to the Server
     client.connect((err, client) => {
@@ -72,13 +72,23 @@ const MyMongoLib = function() {
 
       // Insert a single document
       const testCol = db.collection("orders");
-
-      return testCol
+      if(user_p){
+        return testCol
+        .find({user:user_p})
+        .limit(20)
+        .toArray()
+        .then(resolve)
+        .catch(reject);
+      }
+      else{
+        return testCol
         .find()
         .limit(20)
         .toArray()
         .then(resolve)
         .catch(reject);
+      }
+
     });
   });
 
