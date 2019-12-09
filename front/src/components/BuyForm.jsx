@@ -6,6 +6,9 @@ import plan1 from "../img/plans/plan-1.png";
 import plan2 from "../img/plans/plan-2.png";
 import plan3 from "../img/plans/plan-3.png";
 
+import MyOrders from "../components/MyOrders";
+
+
 const BuyForm = props => {
   const [flavors, setFlavors] = useState([]);
   const [plan, setPlan] = useState("5");
@@ -73,7 +76,6 @@ const BuyForm = props => {
 
   function callBackFunction(name, value, key) {
     console.log("prueba call back:", name, value, key);
-    //let str = name+":"+"'"+value+"'";
     let act = flavorsSelected;
     act[key] = { name: name + "", value: value };
     setFlavorsSelected(act);
@@ -86,8 +88,8 @@ const BuyForm = props => {
     console.log("data ordernowm", data);
 
     fetch("/order", {
-      method: "POST", // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      method: "POST",
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       }
@@ -95,100 +97,73 @@ const BuyForm = props => {
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
       .then(response => console.log("Success:", response));
-    closeForm();
+
   };
 
-  const payu = () => {
-    let scode = document.getElementsByName("csv")[0].value;
-    let date = document.getElementsByName("date")[0].value;
-    let number = document.getElementsByName("cardnumber")[0].value;
-    let name = document.getElementsByName("account")[0].value;
-    let data = {
-      language: "es",
-      command: "SUBMIT_TRANSACTION",
-      merchant: {
-        apiLogin: "pRRXKOl8ikMmt9u",
-        apiKey: "4Vj8eK4rloUd272L48hsrarnUA"
-      },
-      transaction: {
-        order: {
-          accountId: "512321",
-          referenceCode: "testPanama1",
-          description: "Test order Panama",
-          language: "en",
-          notifyUrl: "http://pruebaslap.xtrweb.com/lap/pruebconf.php",
-          signature: "a2de78b35599986d28e9cd8d9048c45d",
-          shippingAddress: {
-            country: "PA"
-          },
-          buyer: {
-            fullName: "APPROVED",
-            emailAddress: "test@payulatam.com",
-            dniNumber: "1155255887",
-            shippingAddress: {
-              street1: "Calle 93 B 17 – 25",
-              city: "Panama",
-              state: "Panama",
-              country: "PA",
-              postalCode: "000000",
-              phone: "5582254"
-            }
-          },
-          additionalValues: {
-            TX_VALUE: {
-              value: 5,
-              currency: "USD"
-            }
-          }
-        },
-        creditCard: {
-          number: number + "",
-          securityCode: scode + "",
-          expirationDate: date + "",
-          name: name + ""
-        },
-        type: "AUTHORIZATION_AND_CAPTURE",
-        paymentMethod: "VISA",
-        paymentCountry: "CO",
-        payer: {
-          fullName: "APPROVED",
-          emailAddress: "test@payulatam.com"
-        },
-        ipAddress: "127.0.0.1",
-        cookie: "cookie_52278879710130",
-        userAgent: "Firefox",
-        extraParameters: {
-          INSTALLMENTS_NUMBER: 1,
-          RESPONSE_URL: "http://www.misitioweb.com/respuesta.php"
-        }
-      },
-      test: true
-    };
 
-    let url = "https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi";
+  function createCheckoutSession (stripe){
 
-    axios
-      .post("https://cors-anywhere.herokuapp.com/" + url, data)
-      .then(function(res) {
-        if (res.status == 201) {
-          console.log("PAGO EXITOSO");
-        }
+    var frecuency = document.getElementsByName("frecuency")[0].value;
+    var aux = 30.0
+    var urlImage =""
+    if(plan == 5){
+      aux= 2500.0
+      urlImage="https://i.ibb.co/zhNnHn7/plan-1.png"
+    }
+    else if(plan==10){
+      aux = 4500.0
+      urlImage="https://i.ibb.co/z63KYKS/plan-2.png"
+    }
+    else{
+      aux=6000.0
+      urlImage="https://i.ibb.co/6NFjN0q/plan-3.png"
+    }
+
+    //var data = { plan: plan, frecuency: frecuency, flavors: flavorsSelected };
+    return fetch("/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name:plan,
+        quantity: 1,
+        cost: aux,
+        image: urlImage
+
       })
-      .catch(function(err) {
-        console.log(err);
-      })
-      .then(function() {
-        orderNow();
+    }).then(function(result) {
+      orderNow();
+      return result.json();
+    })
+  };
+
+  /* Get your Stripe publishable key to initialize Stripe.js */
+  fetch("/config")
+    .then(function(result) {
+      return result.json();
+    })
+    .then(function(json) {
+      window.config = json;
+      var stripe = window.Stripe(window.config.publicKey);
+
+      document.querySelector("#orderButton").addEventListener("click", function(evt) {
+        createCheckoutSession().then(function(data) {
+          stripe
+            .redirectToCheckout({
+              sessionId: data.sessionId
+            })
+            .then(
+              window.handleResult
+
+            );
+        });
       });
-  };
+    });
 
-  function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
 
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+
+
 
   return (
     <div className="container" style={{ marginTop: 10 }}>
@@ -269,36 +244,9 @@ const BuyForm = props => {
       </div>
 
       <div className="btn-container">
-        <button type="button" className="orderButton" onClick={openForm}>
+        <button type="button" className="orderButton" id="orderButton">
           ORDER NOW
         </button>
-      </div>
-      <div className="form-popup" id="myForm">
-        <form class="form-container">
-          <input
-            type="text"
-            placeholder="Account Holder"
-            name="account"
-            required
-          />
-
-          <input
-            type="text"
-            placeholder="Card Number"
-            name="cardnumber"
-            required
-          />
-
-          <input type="text" placeholder="CSV" name="csv" required />
-          <input type="text" placeholder="AAAA/MM" name="date" required />
-
-          <button type="button" className="btn cancel" onClick={payu}>
-            ORDER NOW
-          </button>
-          <button type="button" className="btn c" onClick={closeForm}>
-            CANCEL
-          </button>
-        </form>
       </div>
     </div>
   );

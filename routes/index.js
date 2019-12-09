@@ -30,6 +30,16 @@ router.get("/varieties", (req, res) => {
     })
     .catch(err => res.send({ err: true, msg: err }));
 });
+router.get("/orders", (req, res) => {
+  console.log("Get orders");
+  myMongoLib
+    .getOrders()
+    .then(docs => {
+      console.log("docs");
+      res.send(docs);
+    })
+    .catch(err => res.send({ err: true, msg: err }));
+});
 
 router.post("/order", (req, res) => {
   console.log("Order", req);

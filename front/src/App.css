@@ -412,3 +412,8 @@ ol li::before {
 .cancel:focus {
   background-color: #752929;
 }
+
+table td{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
