@@ -101,8 +101,6 @@ function App() {
             </React.Fragment>
           )}
         />
-        <Route path="/404" component={NotFoundPage} />
-        <Redirect to="/404" />
         <div>{err}</div>
         {renderDocs()}
         <Footer />
