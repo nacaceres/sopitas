@@ -26,10 +26,10 @@ class Navbar extends Component {
             <Link to={"/ourHistory"} className="nav-link">
               OUR HISTORY
             </Link>
-            {this.props.user ? (
-              <a className="nav-link" href="/">
-                TRANSACTIONS
-              </a>
+            {!this.props.user ? (
+              <Link to={"/myOrders"} className="nav-link">
+                MY ORDERS
+              </Link>
             ) : (
               <a></a>
             )}

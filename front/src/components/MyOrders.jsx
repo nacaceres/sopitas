@@ -27,32 +27,37 @@ const MyOrders = () => {
   }, []);
 
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>Plan</th>
-          <th>Frecuency</th>
-          <th>Flavors</th>
-        </tr>
-      </thead>
-      <tbody>
-        {orders.map((d, i) => {
-          return (
-            <tr key={d._id}>
-              <td>{d.plan + " Sopitas"}</td>
-              <td>{d.frecuency}</td>
-              <td>
-                {d.flavors[0]["name"] + " " + d.flavors[0]["value"]}
-                <br></br>
-                {d.flavors[1]["name"] + " " + d.flavors[1]["value"]}
-                <br></br>
-                {d.flavors[2]["name"] + " " + d.flavors[2]["value"]}
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="container">
+      <h2 className="color4 tittle">MY ORDERS</h2>
+      <table className="table">
+        <thead>
+          <tr>
+            <th className="p-text">Plan</th>
+            <th className="p-text">Frequency</th>
+            <th className="p-text">Flavours</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map((d, i) => {
+            return (
+              <tr key={d._id}>
+                <td>{d.plan + " Sopitas"}</td>
+                <td>{d.frecuency + " weeks"}</td>
+                <td>
+                  {d.flavors.map((f, j) => {
+                    return (
+                      <p>
+                        {f.name} ({f.value})
+                      </p>
+                    );
+                  })}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default MyOrders;

@@ -157,7 +157,7 @@ const BuyForm = props => {
     <div className="container" style={{ marginTop: 10 }}>
       <ol>
         <li>
-          <h2 className="color4">CHOOSE YOUR PLAN</h2>
+          <h2 className="color4 tittle">CHOOSE YOUR PLAN</h2>
           <div className="divider"></div>
           <div className="grilla">
             <div
@@ -193,7 +193,7 @@ const BuyForm = props => {
         </li>
 
         <li>
-          <h2 className="color4">CHOOSE YOUR FRECUENCY</h2>
+          <h2 className="color4 tittle">CHOOSE YOUR FREQUENCY</h2>
           <div className="divider"></div>
           <div className="stepTwo">
             <form className="aa">
@@ -212,12 +212,13 @@ const BuyForm = props => {
             </form>
           </div>
         </li>
-        <br></br>
         <li>
-          <h2 className="color4">CHOOSE FLAVORS</h2>
+          <h2 className="color4 tittle">CHOOSE FLAVORS</h2>
           <div className="divider"></div>
+          <p className="p-text">
+            Please select the amount you want from each flavour
+          </p>
         </li>
-        <br></br>
       </ol>
       <div className="grilla">
         {flavors.map((p, i) => (
@@ -233,7 +234,7 @@ const BuyForm = props => {
 
       <div className="btn-container">
         <button type="button" className="orderButton" id="orderButton">
-          ORDER NOW
+          CHECK OUT
         </button>
       </div>
     </div>

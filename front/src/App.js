@@ -20,23 +20,12 @@ import Footer from "./components/Footer";
 import BuyForm from "./components/BuyForm";
 import Variety from "./components/varieties/Variety";
 import NotFoundPage from "./components/notFound/NotFoundPage";
+import MyOrders from "./components/MyOrders";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [docs, setDocs] = useState([]);
-  const [err, setErr] = useState("");
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3001");
-
-    ws.onopen = () => {
-      console.log("Connected to ws");
-
-      ws.onmessage = msg => {
-        setDocs(JSON.parse(msg.data));
-      };
-    };
-
     fetch("/auth/getUser")
       .then(res => res.json())
       .then(_user => {
@@ -44,19 +33,8 @@ function App() {
           setUser(_user);
         }
       });
-
-    fetch("data")
-      .then(res => res.json())
-      .then(data => {
-        if (data.err) {
-          setErr(JSON.stringify(data.msg));
-        } else {
-          setDocs(data);
-        }
-      });
   }, []);
 
-  const renderDocs = () => docs.map(d => <div key={d.name}>{d.name}</div>);
   return (
     <Router>
       <div className="App container-fluid">
@@ -77,7 +55,7 @@ function App() {
           path="/order"
           render={props => (
             <React.Fragment>
-              <BuyForm />
+              <BuyForm user={user} />
             </React.Fragment>
           )}
         />
@@ -99,8 +77,15 @@ function App() {
             </React.Fragment>
           )}
         />
-        <div>{err}</div>
-        {renderDocs()}
+        <Route
+          exact
+          path="/myOrders"
+          render={props => (
+            <React.Fragment>
+              <MyOrders />
+            </React.Fragment>
+          )}
+        />
         <Footer />
       </div>
     </Router>
