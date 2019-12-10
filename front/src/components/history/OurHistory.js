@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "../../App";
 
 import banner from "../../img/banner/banner2.jpg";
-
+//Pueden definirlo como función
 class OurHistory extends Component {
   render() {
     return (
